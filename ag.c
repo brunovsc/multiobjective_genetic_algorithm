@@ -17,6 +17,7 @@ typedef struct individual {
 	int generation;
 	double makespan;
 	double flowtime;
+	double averageFitness;
 } Individual;
 
 typedef struct population {
@@ -26,15 +27,17 @@ typedef struct population {
 	double lowestFitness;
 } Population;
 
-Task* generate_tasks(int nTasks, int nMachines);
-
-Individual generate_individual(Task *tasks, int nTasks, int nMachines, int generation);
-Population generate_population(Task *tasks, int nTasks, int nMachines, int sizePopulation);
+Task* generate_tasks(int, int);
+Individual generate_individual(Task*, int, int, int);
+Population generate_population(Task*, int, int, int);
+Population merge_populations(Population, Population);
 
 double evaluate_individual_makespan(Individual);
 double evaluate_individual_flowtime(Individual);
 
-void evaluate_population(Population *);
+void evaluate_population(Population*);
+void evaluate_population_makespan(Population*);
+void evaluate_population_flowtime(Population*);
 
 void print_individual(Individual);
 void print_population(Population);
@@ -49,10 +52,10 @@ int main (int argc, char *argv[]){
 	int nTasks; // number of tasks in the system
 	int nMachines; // number of machines in the system
 	int sizePopulation1; // number of individuals in the population for objective 1
-	/*
+
 	int sizePopulation2; // number of individuals in the population for objective 2
 	int sizePopulationBoth; // number of individuals in the population for both objectives
-
+/*
 	double mutationFactor; // probability of mutation occurences on each iteration
 	double coefficient1; // coefficient for weigth of first objective
 	double coefficient2; // coefficient for weigth of second objective
@@ -67,9 +70,9 @@ int main (int argc, char *argv[]){
 	scanf("%d", &nMachines);
 	printf("Size of population 1: ");
 	scanf("%d", &sizePopulation1);
-	/*
 	printf("Size of population 2: ");
 	scanf("%d", &sizePopulation2);
+	/*
 	printf("Size of population both: ");
 	scanf("%d", &sizePopulationBoth);
 	printf("Mutation factor (percentage): ");
@@ -86,11 +89,15 @@ int main (int argc, char *argv[]){
 
     Task* tasks = generate_tasks(nTasks, nMachines);
 
-	Population population1 = generate_population(tasks, nTasks, nMachines, sizePopulation1);
+	Population populationMakespan = generate_population(tasks, nTasks, nMachines, sizePopulation1);
+	Population populationFlowtime = generate_population(tasks, nTasks, nMachines, sizePopulation2);
+	Population populationAverage  = merge_populations(populationMakespan, populationFlowtime);
 
-    evaluate_population_makespan(&population1);
 
-	print_complete_population(population1);
+
+    evaluate_population_makespan(&populationMakespan);
+
+	print_complete_population(populationMakespan);
 
 
 	printf("\n");
@@ -142,6 +149,7 @@ void evaluate_population(Population *population){
     for(i = 0; i < population->sizePopulation; i++){
         population->individuals[i].makespan = evaluate_individual_makespan(population->individuals[i]);
         population->individuals[i].flowtime = evaluate_individual_flowtime(population->individuals[i]);
+        population->individuals[i].averageFitness = population->individuals[i].makespan + population->individuals[i].flowtime;
     }
 }
 
@@ -177,6 +185,10 @@ void evaluate_population_flowtime(Population *population){
     }
     population->lowestFitness = population->individuals[0].flowtime;
     population->highestFitness = population->individuals[population->sizePopulation - 1].flowtime;
+}
+
+Population merge_populations(Population population1, Population population2){
+    return population1;
 }
 
 
