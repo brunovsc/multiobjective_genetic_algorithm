@@ -5,6 +5,7 @@
 #define MAX_TASK_TIME 20
 
 typedef struct task {
+	int id;
     int machine;
     double *times;
 } Task;
@@ -55,7 +56,7 @@ int main (int argc, char *argv[]){
 
 	int sizePopulation2; // number of individuals in the population for objective 2
 	int sizePopulationBoth; // number of individuals in the population for both objectives
-/*
+
 	double mutationFactor; // probability of mutation occurences on each iteration
 	double coefficient1; // coefficient for weigth of first objective
 	double coefficient2; // coefficient for weigth of second objective
@@ -63,16 +64,17 @@ int main (int argc, char *argv[]){
 	int iterations;
 	double makespanMaxValue;
 	double flowtimeMaxValue;
-*/
+
 	printf("\nNumber of tasks: ");
 	scanf("%d", &nTasks);
 	printf("Number of machines: ");
 	scanf("%d", &nMachines);
 	printf("Size of population 1: ");
 	scanf("%d", &sizePopulation1);
+	/*
 	printf("Size of population 2: ");
 	scanf("%d", &sizePopulation2);
-	/*
+	
 	printf("Size of population both: ");
 	scanf("%d", &sizePopulationBoth);
 	printf("Mutation factor (percentage): ");
@@ -85,17 +87,24 @@ int main (int argc, char *argv[]){
 	scanf("%lf", &coefficient2);
 	coefficient2 /= 100;
     */
+    printf("Number of iterations: ");
+    scanf("%d", &iterations);
 	srand(time(NULL));
 
     Task* tasks = generate_tasks(nTasks, nMachines);
 
 	Population populationMakespan = generate_population(tasks, nTasks, nMachines, sizePopulation1);
-	Population populationFlowtime = generate_population(tasks, nTasks, nMachines, sizePopulation2);
-	Population populationAverage  = merge_populations(populationMakespan, populationFlowtime);
-
-
+	//Population populationFlowtime = generate_population(tasks, nTasks, nMachines, sizePopulation2);
+	//Population populationAverage  = merge_populations(populationMakespan, populationFlowtime);
 
     evaluate_population_makespan(&populationMakespan);
+
+    int currentGeneration = 0;
+    while(currentGeneration < iterations) {
+
+
+    	
+    }
 
 	print_complete_population(populationMakespan);
 
@@ -196,6 +205,7 @@ Task* generate_tasks(int nTasks, int nMachines){
     Task *tasks = (Task *) malloc(nTasks * sizeof(Task));
     int i, j;
     for(i = 0; i < nTasks; i++){
+    	tasks[i].id = i;
         tasks[i].machine = -1;
         tasks[i].times = (double *) malloc(nMachines * sizeof(double));
         for(j = 0; j < nMachines; j++){
@@ -251,18 +261,18 @@ void print_complete_individual(Individual individual){
 	int size = individual.sizeGenotype;
 
     printf("\nID: %d\n", individual.id);
-	printf("Size: %d\n", size);
+	//printf("Size: %d\n", size);
 	printf("Generation: %d\n", individual.generation);
 	printf("Makespan: %lf\n", individual.makespan);
 	printf("Flowtime: %lf\n", individual.flowtime);
 	printf("Genotype: ");
 
 	for(i = 0; i < size; i++){
-		printf("\n(%d ,", individual.genotype[i].machine);
+		printf("\n(M: %d , T: %d - (", individual.genotype[i].machine, individual.genotype[i].id);
 		for(j = 0; j < individual.nMachines; j++){
             printf(" %2.0lf", individual.genotype[i].times[j]);
 		}
-		printf(")");
+		printf("))");
 	}
 
 	printf("\n");
@@ -289,7 +299,7 @@ void print_complete_population(Population population){
 	printf("Lowest Fitness: %lf\n", population.lowestFitness);
 
 	for(i = 0; i < size; i++){
-		printf("\nIndividual %2d: ", i + 1);
+		//printf("\nIndividual %2d: ", i + 1);
 		print_complete_individual(population.individuals[i]);
 		printf("\n");
 	}
