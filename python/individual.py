@@ -34,12 +34,31 @@ class Individual:
 		for i in range(Individual.nTasks):
 			machine = self.genotype[i] - 1
 			busyTimes[machine] = busyTimes[machine] + Individual.tasks[i].machineTimes[machine]
-		self.makespan = max(busyTimes)
+		self.makespan = -(max(busyTimes))
+
+	def make_copy(self, newGeneration):
+		newIndividual = Individual(newGeneration)
+		for i in range(Individual.nTasks):
+			newIndividual.genotype.append(self.genotype[i])
+		return newIndividual
+
+	@staticmethod
+	def crossover(parent1, parent2, generation):
+		child1 = parent1.make_copy(generation)
+		child2 = parent2.make_copy(generation)
+		crossoverPoint = randint(1, Individual.nTasks - 1)
+		for i in range(crossoverPoint, Individual.nTasks):
+			aux = child1.genotype[i]
+			child1.genotype[i] = child2.genotype[i]
+			child2.genotype[i] = aux
+		child1.calculate_makespan()
+		child2.calculate_makespan()
+		return child1, child2
 
 	def show(self):
 		print("\nID: " + str(self.identifier))
 		print("Generation: " + str(self.generation))
-		print("Makespan: " + str(self.makespan))
+		print("Makespan: " + str(self.makespan * -1))
 		print("Genotype: ", end = "")
 		for machine in self.genotype:
 			print(machine, end = " ")
