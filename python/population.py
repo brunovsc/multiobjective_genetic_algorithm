@@ -32,6 +32,14 @@ class Population():
 		parent2 = self.individuals[indexParent2]
 		return parent1, parent2
 
+	def apply_mutation(self):
+		indexToMutate = randint(0, len(self.individuals)-1)
+		individualToMutate = self.individuals[indexToMutate]
+		indexMutation = randint(0, len(individualToMutate.genotype)-1)
+		newMachine = randint(0, Individual.nMachines)
+		individualToMutate.genotype[indexMutation] = newMachine
+		individualToMutate.calculate_makespan()
+
 	def insert_individual(self, newIndividual):
 		if not self.is_duplicate(newIndividual):
 			heapq.heappushpop(self.individuals, newIndividual)
@@ -52,4 +60,14 @@ class Population():
 			orderedList.append(individual)
 		for i in range(len(orderedList)):
 			orderedList[i].show()
+
+	def show_simple(self):
+		print("\n===== POPULATION BEST INDIVIDUAL")
+		copiedIndividuals = self.individuals.copy()
+		while len(copiedIndividuals) > 1:
+			individual = heapq.heappop(copiedIndividuals)
+		bestIndividual = heapq.heappop(copiedIndividuals)
+		print("ID: " + str(bestIndividual.identifier))
+		print("Makespan: " + str(bestIndividual.makespan * -1))
+		print("Generation: " + str(bestIndividual.generation))
 
