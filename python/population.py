@@ -51,6 +51,13 @@ class Population():
 
 		return False
 
+	def best_individual(self):
+		copiedIndividuals = self.individuals.copy()
+		while len(copiedIndividuals) > 1:
+			individual = heapq.heappop(copiedIndividuals)
+		bestIndividual = heapq.heappop(copiedIndividuals)
+		return bestIndividual
+
 	def show(self):
 		print("\n===== POPULATION")
 		copiedIndividuals = self.individuals.copy()
@@ -63,10 +70,7 @@ class Population():
 
 	def show_simple(self):
 		print("\n===== POPULATION BEST INDIVIDUAL")
-		copiedIndividuals = self.individuals.copy()
-		while len(copiedIndividuals) > 1:
-			individual = heapq.heappop(copiedIndividuals)
-		bestIndividual = heapq.heappop(copiedIndividuals)
+		bestIndividual = self.best_individual()
 		print("ID: " + str(bestIndividual.identifier))
 		print("Makespan: " + str(bestIndividual.makespan * -1))
 		print("Generation: " + str(bestIndividual.generation))

@@ -1,7 +1,7 @@
 from task import Task
 
-def load_tasks(nTasks, nMachines):
-    file = open('tests/c_LL.txt', 'r')
+def load_tasks(filename, nTasks, nMachines):
+    file = open(filename, 'r')
     firstLine = True
     tasks = []
     lines = [line.rstrip('\n') for line in file]
