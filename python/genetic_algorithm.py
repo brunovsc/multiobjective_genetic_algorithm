@@ -18,19 +18,25 @@ class GA():
 		Individual.nMachines = self.nMachines
 		Individual.nTasks = self.nTasks
 		Individual.tasks = load_tasks(self.filename, self.nTasks, self.nMachines)
+		Individual.crossoverMask = Individual.generate_crossover_mask(self.nTasks)
 
 		makespanPopulation = Population.generate(self.populationSize, Individual.tasks)
 		makespanPopulation.show_simple()
 
 		for i in range(self.maxIterations):
 			parent1, parent2 = makespanPopulation.select_parents()
-			child1, child2 = Individual.crossover(parent1, parent2, i+1)
+			# child1, child2 = Individual.crossover_one_point(parent1, parent2, i+1)
+			# child1, child2 = Individual.crossover_two_point(parent1, parent2, i+1)
+			# child1, child2 = Individual.crossover_uniform_unique(parent1, parent2, i+1)
+			child1, child2 = Individual.crossover_uniform_multiple(parent1, parent2, i+1)
+			# child1.apply_mutation_simple(self.mutationFactor)
+			# child2.apply_mutation_simple(self.mutationFactor)
+			child1.apply_mutation_uniform(self.mutationFactor)
+			child2.apply_mutation_uniform(self.mutationFactor)
 			makespanPopulation.insert_individual(child1)
 			makespanPopulation.insert_individual(child2)
 
-			mutationRand = randint(0, 100)
-			if mutationRand <= self.mutationFactor:
-				makespanPopulation.apply_mutation()
-
 		makespanPopulation.show_simple()
 		return makespanPopulation.best_individual()
+
+

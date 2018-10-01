@@ -1,10 +1,10 @@
 from genetic_algorithm import GA
 from individual import Individual
 
-iterations = 100000
+iterations = 50000
 
 
-print("\nMultiobjective Genetic Algorithm\n")
+print("\nObjective Genetic Algorithm\n")
 
 # print("\nNumber of executions: ", end = "")
 # executions = int(input())
@@ -18,7 +18,7 @@ nMachines = 16
 
 # print("Mutation factor (percentage): ", end = "")
 # mutationFactor = int(input())
-mutationFactor = 20
+mutationFactor = 10
 
 # print("Size of MAKESPAN population: ", end = "")
 # sizeMakespanPopulation = int(input())

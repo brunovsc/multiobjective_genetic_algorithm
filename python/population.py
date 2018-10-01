@@ -32,13 +32,9 @@ class Population():
 		parent2 = self.individuals[indexParent2]
 		return parent1, parent2
 
-	def apply_mutation(self):
-		indexToMutate = randint(0, len(self.individuals)-1)
-		individualToMutate = self.individuals[indexToMutate]
-		indexMutation = randint(0, len(individualToMutate.genotype)-1)
-		newMachine = randint(0, Individual.nMachines)
-		individualToMutate.genotype[indexMutation] = newMachine
-		individualToMutate.calculate_makespan()
+	def select_individual(self):
+		indexIndividual = randint(0, len(self.individuals)-1)
+		return self.individuals[indexIndividual]
 
 	def insert_individual(self, newIndividual):
 		if not self.is_duplicate(newIndividual):
