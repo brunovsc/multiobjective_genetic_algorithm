@@ -1,6 +1,7 @@
 from individual import Individual
 from random import randint
 import heapq
+import math
 
 class Population():
 
@@ -47,6 +48,22 @@ class Population():
 
 		return False
 
+	def average_fitness(self):
+		sumTotal = 0.0
+		for individual in self.individuals:
+			sumTotal += individual.makespan
+		average = sumTotal / len(self.individuals)
+		return average
+
+	def deviation(self, average):
+		divisor = 0.0
+		for individual in self.individuals:
+			add = math.pow((individual.makespan - average), 2)
+			divisor += add
+		quotient = len(self.individuals) - 1
+		deviation = math.sqrt(divisor / quotient)
+		return deviation
+
 	def best_individual(self):
 		copiedIndividuals = self.individuals.copy()
 		while len(copiedIndividuals) > 1:
@@ -65,7 +82,7 @@ class Population():
 			orderedList[i].show()
 
 	def show_simple(self):
-		print("\n===== POPULATION BEST INDIVIDUAL")
+		print("\n===== BEST INDIVIDUAL")
 		bestIndividual = self.best_individual()
 		print("ID: " + str(bestIndividual.identifier))
 		print("Makespan: " + str(bestIndividual.makespan * -1))

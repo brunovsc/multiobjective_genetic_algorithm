@@ -1,8 +1,16 @@
 from genetic_algorithm import GA
 from individual import Individual
+import sys
 
-iterations = 50000
+if len(sys.argv) != 4:
+	print("Wrong number of parameters (expected 4).")
+	exit()
 
+filename = sys.argv[1]
+nTasks = int(sys.argv[2])
+nMachines = int(sys.argv[3])
+
+iterations = 1000
 
 print("\nObjective Genetic Algorithm\n")
 
@@ -11,10 +19,9 @@ print("\nObjective Genetic Algorithm\n")
 
 # print("Number of tasks: ", end = "")
 # nTasks = int(input())
-nTasks = 512
+
 # print("Number of machines: ", end = "")
 # nMachines = int(input())
-nMachines = 16
 
 # print("Mutation factor (percentage): ", end = "")
 # mutationFactor = int(input())
@@ -24,5 +31,26 @@ mutationFactor = 10
 # sizeMakespanPopulation = int(input())
 sizeMakespanPopulation = 50
 
-bestIndividual = GA("tests/c_LL.txt", nTasks, nMachines, mutationFactor, sizeMakespanPopulation, iterations).execute_makespan()
+bestIndividuals = []
+averages = []
+for i in range(5):
+	print("\n!!! EXECUTION " + str(i+1))
+	bestIndividual, averageFitness = GA(filename, nTasks, nMachines, mutationFactor, sizeMakespanPopulation, iterations).execute_makespan()
+	bestIndividuals.append(bestIndividual)
+	averages.append(averageFitness)
+
+logFilename = filename.replace(".txt", "_log.txt")
+averageSum = 0.0
+fitnessSum = 0.0
+for i in range(5):
+	averageSum += averages[i]
+	averageFitness += bestIndividual.makespan * -1
+
+averageSum /= 5.0
+averageFitness /= 5.0
+print(averageSum)
+print(averageFitness)
+
+
+
 

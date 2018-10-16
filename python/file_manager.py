@@ -12,3 +12,14 @@ def load_tasks(filename, nTasks, nMachines):
         tasks.append(newTask)    
 
     return tasks
+
+def create_log_file(filename):
+    logFileName = filename.replace('.txt', '_log.txt')
+    file = open(logFileName, "w")
+    file.close()
+
+def append_string_to_file(filename, stringData):
+    with open(filename, "a") as file:
+        file.write(stringData)
+    file.close()
+
