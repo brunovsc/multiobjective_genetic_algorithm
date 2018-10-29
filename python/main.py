@@ -1,56 +1,112 @@
 from genetic_algorithm import GA
 from individual import Individual
 import sys
+import graph
 
-if len(sys.argv) != 4:
-	print("Wrong number of parameters (expected 4).")
-	exit()
+def main():
+	print("\nObjective Genetic Algorithm\n")
 
-filename = sys.argv[1]
-nTasks = int(sys.argv[2])
-nMachines = int(sys.argv[3])
+	if len(sys.argv) != 9 and len(sys.argv) != 2:
+		print("Wrong number of parameters (expected 2 or 9) but got " + str(len(sys.argv)))
+		exit()
 
-iterations = 1000
+	if len(sys.argv) == 2:
+		print("Number of tasks: ", end = "")
+		nTasks = int(input())
+		print("Number of machines: ", end = "")
+		nMachines = int(input())
+		print("Size of MAKESPAN population: ", end = "")
+		populationSize = int(input())
+		print("Mutation factor (percentage): ", end = "")
+		mutationFactor = int(input())
+		print("Crossover Operator (1..4): ", end = "")
+		crossoverOperator = int(input())
+		print("Mutation Operator (1..2): ", end = "")
+		mutationOperator = int(input())
+		print("\nNumber of executions: ", end = "")
+		executions = int(input())
+	else:
+		nTasks = int(sys.argv[2])
+		nMachines = int(sys.argv[3])
+		populationSize = int(sys.argv[4])
+		mutationFactor = int(sys.argv[5])
+		crossoverOperator = int(sys.argv[6])
+		mutationOperator = int(sys.argv[7])
+		nExecutions = int(sys.argv[8])
 
-print("\nObjective Genetic Algorithm\n")
+	filename = sys.argv[1]
+	iterations = 50000
 
-# print("\nNumber of executions: ", end = "")
-# executions = int(input())
+	summaryLogLines = []
+	highests = []
+	averages = []
+	for i in range(nExecutions):
+		arguments = ' '.join(sys.argv[1:])
+		print("EXECUTION " + str(i+1) + " of " + arguments)
+		bestIndividual, executionGenerations, executionAverages, executionHighests = GA(filename, nTasks, nMachines, mutationFactor, populationSize, crossoverOperator, mutationOperator, iterations).execute_makespan()
+		highests.append(executionHighests)
+		averages.append(executionAverages)
 
-# print("Number of tasks: ", end = "")
-# nTasks = int(input())
+		graphName = filename.replace(".txt", "_graph_") + str(i+1) + ".png" 
+		graph.plot_graph(filename, executionGenerations, executionHighests, executionAverages, graphName)
+		summaryLogLine = logLine(filename, bestIndividual, executionAverages, populationSize, crossoverOperator, mutationOperator, mutationFactor)
+		summaryLogLines.append(summaryLogLine)
 
-# print("Number of machines: ", end = "")
-# nMachines = int(input())
+	logFilename = filename.replace(".txt", "_log.txt")
+	logAverages = []
+	logHighests = []
+	for i in range(len(executionGenerations)):
+		averageSum = 0.0
+		highestSum = 0.0
+		for j in range(nExecutions):
+			averageSum += (averages[j])[i]
+			highestSum += (highests[j])[i]
 
-# print("Mutation factor (percentage): ", end = "")
-# mutationFactor = int(input())
-mutationFactor = 10
+		logAverage = averageSum / nExecutions
+		logHighest = highestSum / nExecutions
 
-# print("Size of MAKESPAN population: ", end = "")
-# sizeMakespanPopulation = int(input())
-sizeMakespanPopulation = 50
+		logAverages.append(logAverage)
+		logHighests.append(logHighest)
 
-bestIndividuals = []
-averages = []
-for i in range(5):
-	print("\n!!! EXECUTION " + str(i+1))
-	bestIndividual, averageFitness = GA(filename, nTasks, nMachines, mutationFactor, sizeMakespanPopulation, iterations).execute_makespan()
-	bestIndividuals.append(bestIndividual)
-	averages.append(averageFitness)
+	graphName = filename.replace(".txt", "_graph.png")
+	graph.plot_graph(filename, executionGenerations, logHighests, logAverages, graphName)
+	logSummary(summaryLogLines)
 
-logFilename = filename.replace(".txt", "_log.txt")
-averageSum = 0.0
-fitnessSum = 0.0
-for i in range(5):
-	averageSum += averages[i]
-	averageFitness += bestIndividual.makespan * -1
+def logLine(filename, bestIndividual, executionAverages, populationSize, crossoverOperator, mutationOperator, mutationFactor):
+	crossoverOperatorName = ""
+	if crossoverOperator == 1:
+		crossoverOperatorName = "crossover_one_point"
+	elif crossoverOperator == 2:
+		crossoverOperatorName = "crossover_two_point"
+	elif crossoverOperator == 3:
+		crossoverOperatorName = "crossover_uniform_simple"
+	elif crossoverOperator == 4:
+		crossoverOperatorName = "crossover_uniform_multiple"
+	else:
+		exit()
 
-averageSum /= 5.0
-averageFitness /= 5.0
-print(averageSum)
-print(averageFitness)
+	mutationOperatorName = ""
+	if mutationOperator == 1:
+		mutationOperatorName = "mutation_simple"
+	elif mutationOperator == 2:
+		mutationOperatorName = "mutation_uniform"
+	else:
+		exit()
+
+	file = filename.replace("tests/", "")
+	bestFitness = bestIndividual.makespan * -1
+	bestGeneration = bestIndividual.generation
+	average = executionAverages[-1]
+	line = "{0:s} --- best: {1:.12f} --- average: {2:.12f} --- generation: {3:d} --- population: {4:d} --- {5:s} --- {6:s} {7:d}%\n".format(filename, bestFitness, average, bestGeneration, populationSize, crossoverOperatorName, mutationOperatorName, mutationFactor)
+	return line
 
 
+def logSummary(logLines):
+	summaryLogFilename = "_summary.txt"
+	with open(summaryLogFilename, "a") as file:
+		file.write("\n")
+		for line in logLines:
+			file.write(line)
+		file.close()
 
-
+main()
