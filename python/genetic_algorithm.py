@@ -14,13 +14,15 @@ class GA():
 		self.maxIterations = maxIterations
 		self.crossoverOperator = crossoverOperator
 		self.mutationOperator = mutationOperator
+		Individual.nextIndividualIdentifier = 0
+		# temporary log holders
 		self.logs = []
 		self.logs_makespan = []
 		self.logs_average = []
+		self.logs_flowtime = []
 		self.logs_generations = []
-		Individual.nextIndividualIdentifier = 0
 
-	def execute_makespan(self):
+	def execute(self):
 		Individual.nMachines = self.nMachines
 		Individual.nTasks = self.nTasks
 		Individual.tasks = file_manager.load_tasks(self.filename, self.nTasks, self.nMachines)
@@ -67,7 +69,7 @@ class GA():
 		# print("\nFINAL POPULATION")
 		# makespanPopulation.show_simple()
 		# self.log_information()
-		return makespanPopulation.best_individual(), self.logs_generations, self.logs_average, self.logs_makespan
+		return makespanPopulation.best_individual(), self.logs_generations, self.logs_average, self.logs_makespan, self.logs_flowtime
 
 
 	def log_information(self):
@@ -81,11 +83,13 @@ class GA():
 		average = population.average_fitness()
 		deviation = population.deviation(average)
 		best = population.best_individual()
-		bestFitness = best.makespan
+		bestMakespan = best.makespan
+		bestFlowtime = best.flowtime
 		bestGeneration = best.generation
-		stringData = "average: {0:5.12f} \tdeviation: {1:.12f}\tbest: {2:.12f}\tgeneration: {3:d}\n".format(average * -1, deviation, bestFitness * -1, bestGeneration) 
+		stringData = "average: {0:5.12f} \tdeviation: {1:.12f}\tbest makespan: {2:.12f}\tbest flowtime: {3:.12f}\tgeneration: {4:d}\n".format(average * -1, deviation, bestMakespan * -1, bestFlowtime * -1, bestGeneration) 
 		self.logs.append(stringData)
-		self.logs_makespan.append(bestFitness * -1)
+		self.logs_makespan.append(bestMakespan * -1)
+		self.logs_flowtime.append(bestFlowtime * -1)
 		self.logs_average.append(average * -1)
 		self.logs_generations.append(generation)
 	

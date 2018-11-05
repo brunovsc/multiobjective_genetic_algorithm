@@ -16,7 +16,7 @@ class Individual:
 		Individual.nextIndividualIdentifier += 1
 
 	def __lt__(self, otherIndividual):
-		return self.makespan < otherIndividual.makespan
+		return self.flowtime < otherIndividual.flowtime
 
 	@staticmethod
 	def generate(generation, tasks):
@@ -25,8 +25,22 @@ class Individual:
 			assignedMachine = randint(1, Individual.nMachines) # machines from 1 to N
 			newIndividual.genotype.append(assignedMachine)
 
-		newIndividual.calculate_makespan()
+		newIndividual.calculate_fitness()
 		return newIndividual
+
+	def calculate_fitness(self):
+		busyTimes = []
+		for i in range(Individual.nMachines):
+			busyTimes.append(0.0)
+		for i in range(Individual.nTasks):
+			task = Individual.tasks[i]
+			machine = self.genotype[i] - 1
+			busyTimes[machine] = busyTimes[machine] + task.machineTimes[machine]
+
+		self.makespan = -(max(busyTimes))
+		self.flowtime = -(sum(busyTimes))
+		# self.calculate_makespan()
+		# self.calculate_flowtime()
 
 	def calculate_makespan(self):
 		busyTimes = []
@@ -36,6 +50,17 @@ class Individual:
 			machine = self.genotype[i] - 1
 			busyTimes[machine] = busyTimes[machine] + Individual.tasks[i].machineTimes[machine]
 		self.makespan = -(max(busyTimes))
+
+	def calculate_flowtime(self):
+		busyTimes = []
+		for i in range(Individual.nMachines):
+			busyTimes.append(0.0)
+		for i in range(Individual.nTasks):
+			task = Individual.tasks[i]
+			machine = self.genotype[i] - 1
+			busyTimes[machine] = busyTimes[machine] + task.machineTimes[machine]
+		totalSum = sum(busyTimes)
+		self.flowtime = -totalSum
 
 	def make_copy(self, newGeneration):
 		newIndividual = Individual(newGeneration)
@@ -52,8 +77,8 @@ class Individual:
 			aux = child1.genotype[i]
 			child1.genotype[i] = child2.genotype[i]
 			child2.genotype[i] = aux
-		child1.calculate_makespan()
-		child2.calculate_makespan()
+		child1.calculate_fitness()
+		child2.calculate_fitness()
 		return child1, child2
 
 	@staticmethod
@@ -70,8 +95,8 @@ class Individual:
 			aux = child1.genotype[i]
 			child1.genotype[i] = child2.genotype[i]
 			child2.genotype[i] = aux
-		child1.calculate_makespan()
-		child2.calculate_makespan()
+		child1.calculate_fitness()
+		child2.calculate_fitness()
 		return child1, child2
 
 	@staticmethod
@@ -85,8 +110,8 @@ class Individual:
 			else:
 				child2.genotype[i] = parent1.genotype[i]
 				child1.genotype[i] = parent2.genotype[i]
-		child1.calculate_makespan()
-		child2.calculate_makespan()
+		child1.calculate_fitness()
+		child2.calculate_fitness()
 		return child1, child2
 
 	@staticmethod
@@ -101,8 +126,8 @@ class Individual:
 			else:
 				child2.genotype[i] = parent1.genotype[i]
 				child1.genotype[i] = parent2.genotype[i]
-		child1.calculate_makespan()
-		child2.calculate_makespan()
+		child1.calculate_fitness()
+		child2.calculate_fitness()
 		return child1, child2
 
 	def apply_mutation_simple(self, mutationFactor):
@@ -111,7 +136,7 @@ class Individual:
 			indexMutation = randint(0, len(self.genotype)-1)
 			newMachine = randint(0, Individual.nMachines)
 			self.genotype[indexMutation] = newMachine
-		self.calculate_makespan()
+		self.calculate_fitness()
 
 	def apply_mutation_uniform(self, mutationFactor):
 		for i in range(0, len(self.genotype)-1):
@@ -119,7 +144,7 @@ class Individual:
 			if mutationRand <= mutationFactor:
 				newMachine = randint(0, Individual.nMachines)
 				self.genotype[i] = newMachine
-		self.calculate_makespan()
+		self.calculate_fitness()
 
 	@staticmethod
 	def generate_crossover_mask(nTasks):

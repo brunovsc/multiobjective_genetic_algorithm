@@ -38,38 +38,41 @@ def main():
 	iterations = 50000
 
 	summaryLogLines = []
-	highests = []
+	makespans = []
+	flowtimes = []
 	averages = []
 	for i in range(nExecutions):
 		arguments = ' '.join(sys.argv[1:])
 		print("EXECUTION " + str(i+1) + " of " + arguments)
-		bestIndividual, executionGenerations, executionAverages, executionHighests = GA(filename, nTasks, nMachines, mutationFactor, populationSize, crossoverOperator, mutationOperator, iterations).execute_makespan()
-		highests.append(executionHighests)
+		bestIndividual, executionGenerations, executionAverages, executionMakespans, executionFlowtimes = GA(filename, nTasks, nMachines, mutationFactor, populationSize, crossoverOperator, mutationOperator, iterations).execute()
+		makespans.append(executionMakespans)
+		flowtimes.append(executionFlowtimes)
 		averages.append(executionAverages)
 
 		graphName = filename.replace(".txt", "_graph_") + str(i+1) + ".png" 
-		graph.plot_graph(filename, executionGenerations, executionHighests, executionAverages, graphName)
+		# graph.plot_graph(filename, executionGenerations, executionMakespans, executionAverages, graphName)
+		graph.plot_comparison(filename, executionGenerations, executionMakespans, executionFlowtimes, graphName)
 		summaryLogLine = logLine(filename, bestIndividual, executionAverages, populationSize, crossoverOperator, mutationOperator, mutationFactor)
 		summaryLogLines.append(summaryLogLine)
 
 	logFilename = filename.replace(".txt", "_log.txt")
 	logAverages = []
-	logHighests = []
+	logMakespans = []
 	for i in range(len(executionGenerations)):
 		averageSum = 0.0
-		highestSum = 0.0
+		makespansSum = 0.0
 		for j in range(nExecutions):
 			averageSum += (averages[j])[i]
-			highestSum += (highests[j])[i]
+			makespansSum += (makespans[j])[i]
 
 		logAverage = averageSum / nExecutions
-		logHighest = highestSum / nExecutions
+		logMakespan = makespansSum / nExecutions
 
 		logAverages.append(logAverage)
-		logHighests.append(logHighest)
+		logMakespans.append(logMakespan)
 
 	graphName = filename.replace(".txt", "_graph.png")
-	graph.plot_graph(filename, executionGenerations, logHighests, logAverages, graphName)
+	graph.plot_graph(filename, executionGenerations, logMakespans, logAverages, graphName)
 	logSummary(summaryLogLines)
 
 def logLine(filename, bestIndividual, executionAverages, populationSize, crossoverOperator, mutationOperator, mutationFactor):
