@@ -6,8 +6,8 @@ import graph
 def main():
 	print("\nObjective Genetic Algorithm\n")
 
-	if len(sys.argv) != 9 and len(sys.argv) != 2:
-		print("Wrong number of parameters (expected 2 or 9) but got " + str(len(sys.argv)))
+	if len(sys.argv) != 11 and len(sys.argv) != 2:
+		print("Wrong number of parameters (expected 2 or 11) but got " + str(len(sys.argv)))
 		exit()
 
 	if len(sys.argv) == 2:
@@ -19,6 +19,10 @@ def main():
 		populationSize = int(input())
 		print("Mutation factor (percentage): ", end = "")
 		mutationFactor = int(input())
+		print("Crossover factor (percentage): ", end = "")
+		crossoverFactor = int(input())
+		print("Elitism factor (percentage): ", end = "")
+		elitismFactor = int(input())
 		print("Crossover Operator (1..4): ", end = "")
 		crossoverOperator = int(input())
 		print("Mutation Operator (1..2): ", end = "")
@@ -30,9 +34,11 @@ def main():
 		nMachines = int(sys.argv[3])
 		populationSize = int(sys.argv[4])
 		mutationFactor = int(sys.argv[5])
-		crossoverOperator = int(sys.argv[6])
-		mutationOperator = int(sys.argv[7])
-		nExecutions = int(sys.argv[8])
+		crossoverFactor = int(sys.argv[6])
+		elitismFactor = int(sys.argv[7])
+		crossoverOperator = int(sys.argv[8])
+		mutationOperator = int(sys.argv[9])
+		nExecutions = int(sys.argv[10])
 
 	filename = sys.argv[1]
 	iterations = 50000
@@ -41,10 +47,11 @@ def main():
 	makespans = []
 	flowtimes = []
 	averages = []
+	nExecutions = 1
 	for i in range(nExecutions):
 		arguments = ' '.join(sys.argv[1:])
 		print("EXECUTION " + str(i+1) + " of " + arguments)
-		bestIndividual, executionGenerations, executionAverages, executionMakespans, executionFlowtimes = GA(filename, nTasks, nMachines, mutationFactor, populationSize, crossoverOperator, mutationOperator, iterations).execute()
+		bestIndividual, executionGenerations, executionAverages, executionMakespans, executionFlowtimes = GA(filename, nTasks, nMachines, mutationFactor, crossoverFactor, elitismFactor, populationSize, crossoverOperator, mutationOperator, iterations).execute()
 		makespans.append(executionMakespans)
 		flowtimes.append(executionFlowtimes)
 		averages.append(executionAverages)
@@ -97,7 +104,7 @@ def logLine(filename, bestIndividual, executionAverages, populationSize, crossov
 		exit()
 
 	file = filename.replace("tests/", "")
-	bestFitness = bestIndividual.makespan * -1
+	bestFitness = bestIndividual.makespan
 	bestGeneration = bestIndividual.generation
 	average = executionAverages[-1]
 	line = "{0:s} --- best: {1:.12f} --- average: {2:.12f} --- generation: {3:d} --- population: {4:d} --- {5:s} --- {6:s} {7:d}%\n".format(filename, bestFitness, average, bestGeneration, populationSize, crossoverOperatorName, mutationOperatorName, mutationFactor)

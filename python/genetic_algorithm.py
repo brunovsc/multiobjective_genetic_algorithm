@@ -5,11 +5,13 @@ from population import Population
 import file_manager
 
 class GA():
-	def __init__(self, filename, nTasks, nMachines, mutationFactor, populationSize, crossoverOperator, mutationOperator, maxIterations):
+	def __init__(self, filename, nTasks, nMachines, mutationFactor, crossoverFactor, elitismFactor, populationSize, crossoverOperator, mutationOperator, maxIterations):
 		self.filename = filename
 		self.nTasks = nTasks
 		self.nMachines = nMachines
 		self.mutationFactor = mutationFactor
+		self.crossoverFactor = crossoverFactor
+		self.elitismFactor = elitismFactor
 		self.populationSize = populationSize
 		self.maxIterations = maxIterations
 		self.crossoverOperator = crossoverOperator
@@ -29,46 +31,44 @@ class GA():
 		Individual.crossoverMask = Individual.generate_crossover_mask(self.nTasks)
 
 		makespanPopulation = Population.generate(self.populationSize, Individual.tasks)
-		# print("\nINITIAL POPULATION")
-		# makespanPopulation.show_simple()
 
 		for i in range(self.maxIterations):
+			currentMakespan = makespanPopulation.makespan_sum()
 			# SELECTION
-			parent1, parent2 = makespanPopulation.select_parents()
+			parents = makespanPopulation.select_parents(self.crossoverFactor)
 
 			# CROSSOVER
+			childs = []
 			if self.crossoverOperator == 1:
-				child1, child2 = Individual.crossover_one_point(parent1, parent2, i+1)
+				childs = Individual.crossover_one_point(parents, i+1, currentMakespan)
 			elif self.crossoverOperator == 2:
-				child1, child2 = Individual.crossover_two_point(parent1, parent2, i+1)
+				childs = Individual.crossover_two_point(parents, i+1, currentMakespan)
 			elif self.crossoverOperator == 3:
-				child1, child2 = Individual.crossover_uniform_unique(parent1, parent2, i+1)
+				childs = Individual.crossover_uniform_unique(parents, i+1, currentMakespan)
 			elif self.crossoverOperator == 4:
-				child1, child2 = Individual.crossover_uniform_multiple(parent1, parent2, i+1)
+				childs = Individual.crossover_uniform_multiple(parents, i+1, currentMakespan)
 			else:
 				exit()
 
 			# MUTATION
 			if self.mutationOperator == 1:
-				child1.apply_mutation_simple(self.mutationFactor)
-				child2.apply_mutation_simple(self.mutationFactor)
+				for child in childs:
+					child.apply_mutation_simple(self.mutationFactor, currentMakespan)
+					makespanPopulation.insert_individual(child)
 			elif self.mutationOperator == 2:
-				child1.apply_mutation_uniform(self.mutationFactor)
-				child2.apply_mutation_uniform(self.mutationFactor)
+				for child in childs:
+					child.apply_mutation_uniform(self.mutationFactor, currentMakespan)
+					makespanPopulation.insert_individual(child)
 			else:
 				exit()
 
-			# RE-INSERTION
-			makespanPopulation.insert_individual(child1)
-			makespanPopulation.insert_individual(child2)
+			# INSERTION
+			newPopulationIndividuals = makespanPopulation.update_population(self.elitismFactor)
 
 			# LOGGING
 			if(i % 100 == 0):
 				self.save_log_information(i, makespanPopulation)
 
-		# print("\nFINAL POPULATION")
-		# makespanPopulation.show_simple()
-		# self.log_information()
 		return makespanPopulation.best_individual(), self.logs_generations, self.logs_average, self.logs_makespan, self.logs_flowtime
 
 
@@ -82,15 +82,15 @@ class GA():
 	def save_log_information(self, generation, population):
 		average = population.average_fitness()
 		deviation = population.deviation(average)
-		best = population.best_individual()
+		best = population.bestIndividual
 		bestMakespan = best.makespan
 		bestFlowtime = best.flowtime
 		bestGeneration = best.generation
-		stringData = "average: {0:5.12f} \tdeviation: {1:.12f}\tbest makespan: {2:.12f}\tbest flowtime: {3:.12f}\tgeneration: {4:d}\n".format(average * -1, deviation, bestMakespan * -1, bestFlowtime * -1, bestGeneration) 
+		stringData = "average: {0:5.12f} \tdeviation: {1:.12f}\tbest makespan: {2:.12f}\tbest flowtime: {3:.12f}\tgeneration: {4:d}\n".format(average, deviation, bestMakespan, bestFlowtime, bestGeneration) 
 		self.logs.append(stringData)
-		self.logs_makespan.append(bestMakespan * -1)
-		self.logs_flowtime.append(bestFlowtime * -1)
-		self.logs_average.append(average * -1)
+		self.logs_makespan.append(bestMakespan)
+		self.logs_flowtime.append(bestFlowtime)
+		self.logs_average.append(average)
 		self.logs_generations.append(generation)
 	
 
