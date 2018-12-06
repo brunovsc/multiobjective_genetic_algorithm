@@ -1,7 +1,11 @@
-from genetic_algorithm import GA
 from individual import Individual
 import sys
 import graph
+import genetic_algorithm11
+import genetic_algorithm12
+import genetic_algorithm21
+import genetic_algorithm22
+import genetic_algorithm41
 
 def main():
 	print("\nObjective Genetic Algorithm\n")
@@ -50,7 +54,18 @@ def main():
 	for i in range(nExecutions):
 		arguments = ' '.join(sys.argv[1:])
 		print("EXECUTION " + str(i+1) + " of " + arguments)
-		bestIndividual, executionGenerations, executionAverages, executionMakespans, executionFlowtimes = GA(filename, nTasks, nMachines, mutationFactor, crossoverFactor, elitismFactor, populationSize, crossoverOperator, mutationOperator, iterations).execute()
+		if crossoverOperator == 1:
+			if mutationOperator == 1:
+				bestIndividual, executionGenerations, executionAverages, executionMakespans, executionFlowtimes = genetic_algorithm11.GA(filename, nTasks, nMachines, mutationFactor, crossoverFactor, elitismFactor, populationSize, crossoverOperator, mutationOperator, iterations).execute()
+			else:
+				bestIndividual, executionGenerations, executionAverages, executionMakespans, executionFlowtimes = genetic_algorithm12.GA(filename, nTasks, nMachines, mutationFactor, crossoverFactor, elitismFactor, populationSize, crossoverOperator, mutationOperator, iterations).execute()
+		elif crossoverOperator == 2:
+			if mutationOperator == 1:
+				bestIndividual, executionGenerations, executionAverages, executionMakespans, executionFlowtimes = genetic_algorithm21.GA(filename, nTasks, nMachines, mutationFactor, crossoverFactor, elitismFactor, populationSize, crossoverOperator, mutationOperator, iterations).execute()
+			else:
+				bestIndividual, executionGenerations, executionAverages, executionMakespans, executionFlowtimes = genetic_algorithm22.GA(filename, nTasks, nMachines, mutationFactor, crossoverFactor, elitismFactor, populationSize, crossoverOperator, mutationOperator, iterations).execute()
+		else:
+			bestIndividual, executionGenerations, executionAverages, executionMakespans, executionFlowtimes = genetic_algorithm41.GA(filename, nTasks, nMachines, mutationFactor, crossoverFactor, elitismFactor, populationSize, crossoverOperator, mutationOperator, iterations).execute()
 		makespans.append(executionMakespans)
 		flowtimes.append(executionFlowtimes)
 		averages.append(executionAverages)
@@ -59,6 +74,7 @@ def main():
 		print(graphName)
 		graph.plot_graph(graphName, executionGenerations, executionMakespans, executionAverages, graphName)
 		summaryLogLine = logLine(filename, bestIndividual, executionAverages, populationSize, crossoverOperator, crossoverFactor, mutationOperator, mutationFactor, elitismFactor)
+		print(summaryLogLine)
 		summaryLogLines.append(summaryLogLine)
 
 	logFilename = filename.replace(".txt", "_log.txt")

@@ -1,10 +1,10 @@
 from random import randint
 
-populationSizes = ["050", "100", "150", "200"]
-mutationFactor = ["1", "5", "10"]
-crossoverFactor = ["5", "10", "25", "50"]
-elitismFactor = ["10", "25"]
-crossoverOperator = ["1", "2", "3", "4"]
+populationSizes = ["150"]
+mutationFactor = ["1", "5"]
+crossoverFactor = ["50"]
+elitismFactor = ["10"]
+crossoverOperator = ["1", "2"]
 mutationOperator = ["1", "2"]
 numberOfRuns = "5"
 
