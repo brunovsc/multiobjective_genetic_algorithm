@@ -1,0 +1,54 @@
+X crossover de 2 pontos
+X crossover uniforme 
+X mutação (uniforme)
+X descer pra 50k iterações
+
+rX egistrar média, desvio padrão e melhor indivíduo (a cada 100 gerações) -> Gráfico
+
+============================
+
+soma mínima
+X flowtime
+X gráfico (média/melhor x geração)
+tabela comparativa com a literatura
+
+===========================
+
+utilizacao
+X variancia
+seçao 4 (grid system performance)
+
+===========================
+
+desenvolvimento:
+
+- detalhamento do ag proposto
+- ETC model
+- cromossomo
+- metricas
+
+Resultados:
+
+- instancias
+- tabelas e graficos
+
+Trabalhos futuros:
+- multiobjetivo
+
+
+
+TESTES:
+	1. comparação entre os diversos parâmetros pra achar a melhor combinação (testes no 512x16 LL) - makespan minimization
+	2. comparação dessa melhor combinação com a tabela da literatura (testes 512x16 LL, LH, HL, HH)
+
+	3. comparação entre os diversos parâmetros para achar a melhor combinação - flowtime minimization
+	4. avaliação do makespan nos indivíduos da população
+	5. comparação com a minimização do makespan
+	6. comparação com a literatura
+
+	7. comparação entre os diversos parâmetros para achar a melhor combinação - utilization maximization
+	8. avaliação do makespan nos indivíduos da populacão
+	9. comparação com a minimização do makespan e do flowtime
+	10. comparação com a literatura
+
+	11. comparação dos melhores resultados de cada método com a literatura

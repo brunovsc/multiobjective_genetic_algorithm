@@ -1,0 +1,54 @@
+
+tests/c_LL.txt --- best: 6528.626725000000 --- average: 6528.626724999986 --- generation: 38037 --- population: 150 --- crossover_uniform_multiple --- mutation_simple 10%
+tests/c_LL.txt --- best: 6627.454369999999 --- average: 6627.454370000020 --- generation: 48322 --- population: 150 --- crossover_uniform_multiple --- mutation_simple 10%
+tests/c_LL.txt --- best: 6660.731825000000 --- average: 6660.731825000016 --- generation: 45736 --- population: 150 --- crossover_uniform_multiple --- mutation_simple 10%
+tests/c_LL.txt --- best: 6630.920426999999 --- average: 6630.920427000010 --- generation: 43191 --- population: 150 --- crossover_uniform_multiple --- mutation_simple 10%
+tests/c_LL.txt --- best: 6543.272618000000 --- average: 6543.272618000017 --- generation: 47253 --- population: 150 --- crossover_uniform_multiple --- mutation_simple 10%
+
+tests/c_LL.txt --- best: 6781.219355000002 --- average: 6923.431496979983 --- generation: 49092 --- population: 150 --- crossover_two_point 50% --- mutation_simple 1% --- elitism: 10%
+tests/c_LL.txt --- best: 6852.863848000001 --- average: 6888.252877346647 --- generation: 48230 --- population: 150 --- crossover_two_point 50% --- mutation_simple 1% --- elitism: 10%
+tests/c_LL.txt --- best: 6732.976830000001 --- average: 6848.648281153351 --- generation: 44562 --- population: 150 --- crossover_two_point 50% --- mutation_simple 1% --- elitism: 10%
+tests/c_LL.txt --- best: 6853.905232999999 --- average: 6855.581824553359 --- generation: 39755 --- population: 150 --- crossover_two_point 50% --- mutation_simple 1% --- elitism: 10%
+tests/c_LL.txt --- best: 6715.055897000000 --- average: 6751.956122773345 --- generation: 49438 --- population: 150 --- crossover_two_point 50% --- mutation_simple 1% --- elitism: 10%
+
+tests/c_LL.txt --- best: 6781.488025000000 --- average: 6781.898394199992 --- generation: 49296 --- population: 150 --- crossover_one_point 50% --- mutation_simple 1% --- elitism: 10%
+tests/c_LL.txt --- best: 6823.351032999999 --- average: 6885.579135000004 --- generation: 42777 --- population: 150 --- crossover_one_point 50% --- mutation_simple 1% --- elitism: 10%
+tests/c_LL.txt --- best: 6757.851853000000 --- average: 6773.572332379999 --- generation: 38378 --- population: 150 --- crossover_one_point 50% --- mutation_simple 1% --- elitism: 10%
+tests/c_LL.txt --- best: 6760.864510000001 --- average: 6769.621893026659 --- generation: 42376 --- population: 150 --- crossover_one_point 50% --- mutation_simple 1% --- elitism: 10%
+tests/c_LL.txt --- best: 6693.830604999999 --- average: 6707.889633866683 --- generation: 49742 --- population: 150 --- crossover_one_point 50% --- mutation_simple 1% --- elitism: 10%
+
+tests/c_LL.txt --- best: 6785.348863000000 --- average: 11887.294360466673 --- generation: 45327 --- population: 150 --- crossover_one_point 50% --- mutation_uniform 1% --- elitism: 10%
+tests/c_LL.txt --- best: 6960.101600000002 --- average: 9509.723928926665 --- generation: 39666 --- population: 150 --- crossover_one_point 50% --- mutation_uniform 1% --- elitism: 10%
+tests/c_LL.txt --- best: 6890.900008000001 --- average: 10368.356224653346 --- generation: 46967 --- population: 150 --- crossover_one_point 50% --- mutation_uniform 1% --- elitism: 10%
+tests/c_LL.txt --- best: 6931.716680999999 --- average: 11308.137829593334 --- generation: 39442 --- population: 150 --- crossover_one_point 50% --- mutation_uniform 1% --- elitism: 10%
+tests/c_LL.txt --- best: 7103.425889999999 --- average: 12740.301334086660 --- generation: 42026 --- population: 150 --- crossover_one_point 50% --- mutation_uniform 1% --- elitism: 10%
+
+tests/c_LL.txt --- best: 6810.171192000001 --- average: 10028.862933446670 --- generation: 49839 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 1% --- elitism: 10%
+tests/c_LL.txt --- best: 6864.204018999997 --- average: 9808.422550206671 --- generation: 42943 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 1% --- elitism: 10%
+tests/c_LL.txt --- best: 6854.094021999999 --- average: 10208.406632926668 --- generation: 43889 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 1% --- elitism: 10%
+tests/c_LL.txt --- best: 6877.658891999999 --- average: 10016.014203933326 --- generation: 36656 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 1% --- elitism: 10%
+tests/c_LL.txt --- best: 6763.273305000001 --- average: 9710.670335486670 --- generation: 49252 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 1% --- elitism: 10%
+
+tests/c_LL.txt --- best: 6726.875596999998 --- average: 6779.288469346667 --- generation: 49554 --- population: 150 --- crossover_one_point 50% --- mutation_simple 5% --- elitism: 10%
+tests/c_LL.txt --- best: 6807.516589999999 --- average: 6994.526358220006 --- generation: 49854 --- population: 150 --- crossover_one_point 50% --- mutation_simple 5% --- elitism: 10%
+tests/c_LL.txt --- best: 6696.085819000001 --- average: 6853.241736673336 --- generation: 24473 --- population: 150 --- crossover_one_point 50% --- mutation_simple 5% --- elitism: 10%
+tests/c_LL.txt --- best: 6719.312426999997 --- average: 6746.968403833349 --- generation: 26769 --- population: 150 --- crossover_one_point 50% --- mutation_simple 5% --- elitism: 10%
+tests/c_LL.txt --- best: 6752.413861000000 --- average: 6817.384180413320 --- generation: 20893 --- population: 150 --- crossover_one_point 50% --- mutation_simple 5% --- elitism: 10%
+
+tests/c_LL.txt --- best: 7811.778354999999 --- average: 14352.199977853335 --- generation: 43490 --- population: 150 --- crossover_one_point 50% --- mutation_uniform 5% --- elitism: 10%
+tests/c_LL.txt --- best: 7510.896570000001 --- average: 13171.715667433329 --- generation: 40804 --- population: 150 --- crossover_one_point 50% --- mutation_uniform 5% --- elitism: 10%
+tests/c_LL.txt --- best: 7493.775591000000 --- average: 15828.685927999992 --- generation: 39536 --- population: 150 --- crossover_one_point 50% --- mutation_uniform 5% --- elitism: 10%
+tests/c_LL.txt --- best: 7618.106497999999 --- average: 13150.715876593336 --- generation: 45583 --- population: 150 --- crossover_one_point 50% --- mutation_uniform 5% --- elitism: 10%
+tests/c_LL.txt --- best: 7623.749247000002 --- average: 13661.627636220004 --- generation: 39489 --- population: 150 --- crossover_one_point 50% --- mutation_uniform 5% --- elitism: 10%
+
+tests/c_LL.txt --- best: 6676.662431000001 --- average: 6938.740047033334 --- generation: 49606 --- population: 150 --- crossover_two_point 50% --- mutation_simple 5% --- elitism: 10%
+tests/c_LL.txt --- best: 6845.954014999999 --- average: 6973.249444993333 --- generation: 36226 --- population: 150 --- crossover_two_point 50% --- mutation_simple 5% --- elitism: 10%
+tests/c_LL.txt --- best: 6789.729250999999 --- average: 6993.291688119994 --- generation: 27013 --- population: 150 --- crossover_two_point 50% --- mutation_simple 5% --- elitism: 10%
+tests/c_LL.txt --- best: 6821.622269000000 --- average: 6936.615127186672 --- generation: 41968 --- population: 150 --- crossover_two_point 50% --- mutation_simple 5% --- elitism: 10%
+tests/c_LL.txt --- best: 6781.897938000000 --- average: 6988.012602006676 --- generation: 48765 --- population: 150 --- crossover_two_point 50% --- mutation_simple 5% --- elitism: 10%
+
+tests/c_LL.txt --- best: 7672.248794999998 --- average: 15212.755622846662 --- generation: 49529 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% --- elitism: 10%
+tests/c_LL.txt --- best: 7543.770427000002 --- average: 15256.602662166661 --- generation: 46716 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% --- elitism: 10%
+tests/c_LL.txt --- best: 7793.840824000000 --- average: 14859.707827166663 --- generation: 42781 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% --- elitism: 10%
+tests/c_LL.txt --- best: 7516.344014000000 --- average: 13916.490885413335 --- generation: 43165 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% --- elitism: 10%
+tests/c_LL.txt --- best: 7547.013402000000 --- average: 16048.266563959996 --- generation: 44290 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% --- elitism: 10%
