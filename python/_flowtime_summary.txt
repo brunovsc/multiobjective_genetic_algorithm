@@ -1,0 +1,108 @@
+
+
+tests/c_LL.txt --- bestFlowtime: 39434.059215000001 --- bestMakespan: 39595.598892000002 --- average: 39410.521225846591 --- generation: 47831 --- population: 150 --- crossover_one_point 50% --- mutation_simple 5% 
+tests/c_LL.txt --- bestFlowtime: 39582.297317000004 --- bestMakespan: 39582.297317000004 --- average: 39566.444312913351 --- generation: 47825 --- population: 150 --- crossover_one_point 50% --- mutation_simple 5% 
+tests/c_LL.txt --- bestFlowtime: 39582.297317000004 --- bestMakespan: 39582.297317000004 --- average: 39553.351390093332 --- generation: 47710 --- population: 150 --- crossover_one_point 50% --- mutation_simple 5% 
+tests/c_LL.txt --- bestFlowtime: 39582.297317000004 --- bestMakespan: 39582.297317000004 --- average: 39568.655298900077 --- generation: 41725 --- population: 150 --- crossover_one_point 50% --- mutation_simple 5% 
+tests/c_LL.txt --- bestFlowtime: 39582.297317000004 --- bestMakespan: 39582.297317000004 --- average: 39569.538239380068 --- generation: 45185 --- population: 150 --- crossover_one_point 50% --- mutation_simple 5% 
+
+tests/c_LL.txt --- bestFlowtime: 13187.685600000006 --- bestMakespan: 85345.253915000008 --- average: 13848.321907993333 --- generation: 49563 --- population: 150 --- crossover_one_point 50% --- mutation_uniform 5% 
+tests/c_LL.txt --- bestFlowtime: 9544.201045000003 --- bestMakespan: 85097.153010000009 --- average: 15044.818826213326 --- generation: 43043 --- population: 150 --- crossover_one_point 50% --- mutation_uniform 5% 
+tests/c_LL.txt --- bestFlowtime: 10524.139320999997 --- bestMakespan: 84661.115272999989 --- average: 14528.202608006652 --- generation: 46405 --- population: 150 --- crossover_one_point 50% --- mutation_uniform 5% 
+tests/c_LL.txt --- bestFlowtime: 9747.909125999999 --- bestMakespan: 86668.313505999991 --- average: 12349.799556299997 --- generation: 43088 --- population: 150 --- crossover_one_point 50% --- mutation_uniform 5% 
+tests/c_LL.txt --- bestFlowtime: 10251.955569000003 --- bestMakespan: 87051.966909000010 --- average: 12831.568240920002 --- generation: 47014 --- population: 150 --- crossover_one_point 50% --- mutation_uniform 5% 
+
+tests/c_LL.txt --- bestFlowtime: 39582.297317000004 --- bestMakespan: 39582.297317000004 --- average: 39558.392008386669 --- generation: 45728 --- population: 150 --- crossover_two_point 50% --- mutation_simple 5% 
+tests/c_LL.txt --- bestFlowtime: 39411.431120999994 --- bestMakespan: 39589.865522999993 --- average: 39339.177593806693 --- generation: 46602 --- population: 150 --- crossover_two_point 50% --- mutation_simple 5% 
+tests/c_LL.txt --- bestFlowtime: 39582.297317000004 --- bestMakespan: 39582.297317000004 --- average: 39509.722667233364 --- generation: 46315 --- population: 150 --- crossover_two_point 50% --- mutation_simple 5% 
+tests/c_LL.txt --- bestFlowtime: 39410.588353999992 --- bestMakespan: 39588.784319999992 --- average: 39384.622742966574 --- generation: 45535 --- population: 150 --- crossover_two_point 50% --- mutation_simple 5% 
+tests/c_LL.txt --- bestFlowtime: 39342.960661999998 --- bestMakespan: 39586.645552999995 --- average: 39310.689714113316 --- generation: 43545 --- population: 150 --- crossover_two_point 50% --- mutation_simple 5% 
+
+BEST
+tests/c_LL.txt --- bestFlowtime: 9560.235877000001 --- bestMakespan: 84473.542702999999 --- average: 15201.823414773329 --- generation: 49750 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/c_LL.txt --- bestFlowtime: 9385.092040000000 --- bestMakespan: 85051.046994000004 --- average: 15089.163125206651 --- generation: 48209 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/c_LL.txt --- bestFlowtime: 9835.686250000001 --- bestMakespan: 84993.284788000004 --- average: 17268.714028006663 --- generation: 45945 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/c_LL.txt --- bestFlowtime: 9606.797203999999 --- bestMakespan: 84265.175599999988 --- average: 13672.485705953330 --- generation: 49016 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/c_LL.txt --- bestFlowtime: 11423.546147999999 --- bestMakespan: 84214.616152999995 --- average: 13866.480945179994 --- generation: 48899 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+
+tests/c_LL.txt --- bestFlowtime: 39582.297317000004 --- bestMakespan: 39582.297317000004 --- average: 39550.502978486707 --- generation: 49433 --- population: 150 --- crossover_uniform_multiple 50% --- mutation_simple 5% 
+tests/c_LL.txt --- bestFlowtime: 39579.513134000001 --- bestMakespan: 39584.059735000003 --- average: 39556.452427913275 --- generation: 47917 --- population: 150 --- crossover_uniform_multiple 50% --- mutation_simple 5% 
+tests/c_LL.txt --- bestFlowtime: 39582.297317000004 --- bestMakespan: 39582.297317000004 --- average: 39552.183813506686 --- generation: 45966 --- population: 150 --- crossover_uniform_multiple 50% --- mutation_simple 5% 
+tests/c_LL.txt --- bestFlowtime: 39582.297317000004 --- bestMakespan: 39582.297317000004 --- average: 39516.448403986666 --- generation: 49923 --- population: 150 --- crossover_uniform_multiple 50% --- mutation_simple 5% 
+tests/c_LL.txt --- bestFlowtime: 39523.421851999999 --- bestMakespan: 39585.004332999997 --- average: 39507.571513513394 --- generation: 39939 --- population: 150 --- crossover_uniform_multiple 50% --- mutation_simple 5% 
+
+
+
+----------
+
+tests/c_LL.txt --- bestFlowtime: 10457.894729999998 --- bestMakespan: 86047.484551999994 --- average: 14794.318865613341 --- generation: 38262 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/c_LL.txt --- bestFlowtime: 10292.081515999998 --- bestMakespan: 83370.843637999991 --- average: 12288.930703186665 --- generation: 48543 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/c_LL.txt --- bestFlowtime: 9220.880522000001 --- bestMakespan: 85032.440809999986 --- average: 14393.638896613325 --- generation: 43665 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/c_LL.txt --- bestFlowtime: 11101.763968999998 --- bestMakespan: 85936.657864000008 --- average: 13585.264016466659 --- generation: 49062 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/c_LL.txt --- bestFlowtime: 9201.295117999998 --- bestMakespan: 84012.525356999977 --- average: 14388.793150659998 --- generation: 39362 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+
+tests/c_HL.txt --- bestFlowtime: 296050.221894999966 --- bestMakespan: 2499586.223449000157 --- average: 437799.116714420205 --- generation: 47279 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/c_HL.txt --- bestFlowtime: 275008.260162000079 --- bestMakespan: 2435880.270182000473 --- average: 396298.402362353576 --- generation: 49301 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/c_HL.txt --- bestFlowtime: 280925.626369000005 --- bestMakespan: 2517859.815607999917 --- average: 379506.943690146669 --- generation: 48300 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/c_HL.txt --- bestFlowtime: 274238.551879000035 --- bestMakespan: 2544897.825418000109 --- average: 361993.404069213313 --- generation: 47941 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/c_HL.txt --- bestFlowtime: 262822.180687999993 --- bestMakespan: 2554715.444194000214 --- average: 383977.939988359984 --- generation: 47339 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+
+tests/c_LH.txt --- bestFlowtime: 711453.704466000083 --- bestMakespan: 6516736.824706001207 --- average: 1207682.030680067139 --- generation: 49054 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/c_LH.txt --- bestFlowtime: 721215.264099999680 --- bestMakespan: 6348272.800882000476 --- average: 1520026.417710913112 --- generation: 48468 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/c_LH.txt --- bestFlowtime: 633796.544862000039 --- bestMakespan: 6494175.687857999466 --- average: 1283807.992615733063 --- generation: 48557 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/c_LH.txt --- bestFlowtime: 716745.530275000026 --- bestMakespan: 6622105.821119000204 --- average: 1371977.783613406355 --- generation: 47226 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/c_LH.txt --- bestFlowtime: 655779.504457000061 --- bestMakespan: 6558691.791711999103 --- average: 1510372.854345894651 --- generation: 49787 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+
+tests/c_HH.txt --- bestFlowtime: 18102276.989257000387 --- bestMakespan: 190211990.269658029079 --- average: 37559680.644568681717 --- generation: 48456 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/c_HH.txt --- bestFlowtime: 20894835.837280999869 --- bestMakespan: 200547827.935422003269 --- average: 38707927.722848676145 --- generation: 40102 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/c_HH.txt --- bestFlowtime: 20094985.406250000000 --- bestMakespan: 196186763.665833026171 --- average: 38430757.604928515851 --- generation: 48711 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/c_HH.txt --- bestFlowtime: 21571308.097656998783 --- bestMakespan: 193717177.459745019674 --- average: 34172447.703215822577 --- generation: 48869 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/c_HH.txt --- bestFlowtime: 19792997.750856000930 --- bestMakespan: 197859015.737059980631 --- average: 34580568.781378254294 --- generation: 45401 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+
+tests/i_LL.txt --- bestFlowtime: 8751.778789999998 --- bestMakespan: 81091.750479000009 --- average: 12090.159911246670 --- generation: 49582 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/i_LL.txt --- bestFlowtime: 8797.291376000001 --- bestMakespan: 79609.741241999989 --- average: 11925.433155626657 --- generation: 46660 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/i_LL.txt --- bestFlowtime: 8229.111776000000 --- bestMakespan: 82878.339792000013 --- average: 11563.262826479995 --- generation: 43841 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/i_LL.txt --- bestFlowtime: 10306.777410999997 --- bestMakespan: 79807.702250999995 --- average: 13464.567011739997 --- generation: 45373 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/i_LL.txt --- bestFlowtime: 11189.553406000001 --- bestMakespan: 81254.081965999983 --- average: 12114.669183246668 --- generation: 48888 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+
+tests/i_HL.txt --- bestFlowtime: 275965.158270000014 --- bestMakespan: 2406191.859026999678 --- average: 354541.178129020263 --- generation: 45934 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/i_HL.txt --- bestFlowtime: 283580.546986999980 --- bestMakespan: 2420161.683344000019 --- average: 390660.992128600192 --- generation: 49354 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/i_HL.txt --- bestFlowtime: 270930.159793000028 --- bestMakespan: 2421095.554674999788 --- average: 341426.660741353524 --- generation: 43719 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/i_HL.txt --- bestFlowtime: 209694.943819000007 --- bestMakespan: 2423904.930751000065 --- average: 316362.484177753155 --- generation: 45766 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/i_HL.txt --- bestFlowtime: 241140.169478000083 --- bestMakespan: 2380196.353889999911 --- average: 361422.778645646817 --- generation: 49148 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+
+tests/i_LH.txt --- bestFlowtime: 822830.859215000179 --- bestMakespan: 6037425.934914998710 --- average: 965900.831626040163 --- generation: 49665 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/i_LH.txt --- bestFlowtime: 636448.688714999938 --- bestMakespan: 6152949.885311999358 --- average: 970681.384773407015 --- generation: 48380 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/i_LH.txt --- bestFlowtime: 781893.207886000280 --- bestMakespan: 6108800.765984999947 --- average: 873086.769101692596 --- generation: 48015 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/i_LH.txt --- bestFlowtime: 544733.589627000154 --- bestMakespan: 5935761.886931999587 --- average: 974361.876244099927 --- generation: 49384 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/i_LH.txt --- bestFlowtime: 880393.842187999748 --- bestMakespan: 6237237.075410999358 --- average: 1038893.721418060479 --- generation: 49178 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+
+tests/i_HH.txt --- bestFlowtime: 19802278.388672996312 --- bestMakespan: 186812257.504844963551 --- average: 32003810.304936211556 --- generation: 47107 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/i_HH.txt --- bestFlowtime: 23496325.505858998746 --- bestMakespan: 185661895.854121983051 --- average: 31912205.004638519138 --- generation: 47706 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/i_HH.txt --- bestFlowtime: 20597339.225587997586 --- bestMakespan: 186235992.735224008560 --- average: 28284003.903924759477 --- generation: 48556 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/i_HH.txt --- bestFlowtime: 25711344.175779998302 --- bestMakespan: 188505508.959469974041 --- average: 32571519.708532683551 --- generation: 49722 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/i_HH.txt --- bestFlowtime: 16774893.123001996428 --- bestMakespan: 182180071.153823018074 --- average: 28701697.186802025884 --- generation: 48940 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+
+tests/s_LL.txt --- bestFlowtime: 10195.161774999999 --- bestMakespan: 87293.305685999992 --- average: 13317.965011446668 --- generation: 49874 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/s_LL.txt --- bestFlowtime: 10955.975112000002 --- bestMakespan: 86801.601113999990 --- average: 12482.578481380006 --- generation: 46837 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/s_LL.txt --- bestFlowtime: 11265.726991000000 --- bestMakespan: 86439.157378999997 --- average: 13148.164211506670 --- generation: 49316 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/s_LL.txt --- bestFlowtime: 8475.761991000001 --- bestMakespan: 85074.439478000000 --- average: 12059.390800766676 --- generation: 40659 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/s_LL.txt --- bestFlowtime: 9794.378295999999 --- bestMakespan: 85516.930945000000 --- average: 11685.513398433339 --- generation: 48923 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+
+tests/s_HL.txt --- bestFlowtime: 307211.360945000022 --- bestMakespan: 2331460.506612999830 --- average: 351340.767171159911 --- generation: 48176 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/s_HL.txt --- bestFlowtime: 254753.148070000025 --- bestMakespan: 2323454.006140000187 --- average: 322833.970014260150 --- generation: 46975 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/s_HL.txt --- bestFlowtime: 284359.591582999972 --- bestMakespan: 2390540.852725000121 --- average: 334540.944365179981 --- generation: 33687 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/s_HL.txt --- bestFlowtime: 259915.970299000037 --- bestMakespan: 2337090.292390999850 --- average: 377887.005753626581 --- generation: 49867 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/s_HL.txt --- bestFlowtime: 291840.105535999930 --- bestMakespan: 2351168.238166000228 --- average: 360115.599352193298 --- generation: 48382 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+
+tests/s_LH.txt --- bestFlowtime: 700894.265042999992 --- bestMakespan: 5522575.799147000536 --- average: 1032032.389515419840 --- generation: 43255 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/s_LH.txt --- bestFlowtime: 640210.505600999924 --- bestMakespan: 5723073.446859000251 --- average: 906141.599484659382 --- generation: 41658 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/s_LH.txt --- bestFlowtime: 561301.043670000043 --- bestMakespan: 5517534.420182000846 --- average: 1045433.050691366545 --- generation: 48759 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/s_LH.txt --- bestFlowtime: 639046.302306000143 --- bestMakespan: 5460055.524194999598 --- average: 866953.877090939437 --- generation: 46293 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/s_LH.txt --- bestFlowtime: 655439.520491000032 --- bestMakespan: 5734963.881737001240 --- average: 944203.886989200138 --- generation: 38926 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+
+tests/s_HH.txt --- bestFlowtime: 23169065.550781000406 --- bestMakespan: 180415700.450708985329 --- average: 29737837.709137950093 --- generation: 42386 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/s_HH.txt --- bestFlowtime: 21736576.656247001141 --- bestMakespan: 180669595.935820937157 --- average: 33619394.159524373710 --- generation: 48645 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/s_HH.txt --- bestFlowtime: 19951447.975828003138 --- bestMakespan: 182286507.036927968264 --- average: 30513442.343597564846 --- generation: 47632 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/s_HH.txt --- bestFlowtime: 23698483.916991997510 --- bestMakespan: 182735886.531161993742 --- average: 27826229.638255856931 --- generation: 40102 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
+tests/s_HH.txt --- bestFlowtime: 22826781.276608999819 --- bestMakespan: 178001336.479882001877 --- average: 32271451.028675034642 --- generation: 43729 --- population: 150 --- crossover_two_point 50% --- mutation_uniform 5% 
